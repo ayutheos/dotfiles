@@ -1,0 +1,206 @@
+﻿" An example for a gvimrc file.
+" The commands in this are executed when the GUI is started.
+"
+" Maintainer:	Bram Moolenaar <Bram@vim.org>
+" Last change:	2001 Sep 02
+"
+" To use it, copy it to
+"     for Unix and OS/2:  ~/.gvimrc
+"	      for Amiga:  s:.gvimrc
+"  for MS-DOS and Win32:  $VIM\_gvimrc
+"	    for OpenVMS:  sys$login:.gvimrc
+
+" Make external commands work through a pipe instead of a pseudo-tty
+"set noguipty
+
+" set the X11 font to use
+" set guifont=-misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
+
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Maximize gvim window.
+  set lines=999 columns=100
+else
+  " This is console Vim.
+  if exists("+lines")
+    set lines=50
+  endif
+  if exists("+columns")
+    set columns=100
+  endif
+endif
+
+set ch=2		" Make command line two lines high
+
+set mousehide		" Hide the mouse when typing text
+
+" Make shift-insert work like in Xterm
+map <S-Insert> <MiddleMouse>
+map! <S-Insert> <MiddleMouse>
+
+" Only do this for Vim version 5.0 and later.
+if version >= 500
+
+  " I like highlighting strings inside C comments
+  let c_comment_strings=1
+
+  " Switch on syntax highlighting if it wasn't on yet.
+  if !exists("syntax_on")
+    syntax on
+  endif
+
+  " Switch on search pattern highlighting.
+  set hlsearch
+
+  " For Win32 version, have "K" lookup the keyword in a help file
+  "if has("win32")
+  "  let winhelpfile='windows.hlp'
+  "  map K :execute "!start winhlp32 -k <cword> " . winhelpfile <CR>
+  "endif
+
+  " Set nice colors
+  " background for normal text is light grey
+  " Text below the last line is darker grey
+  " Cursor is green, Cyan when ":lmap" mappings are active
+  " Constants are not underlined but have a slightly lighter background
+"  highlight Normal guibg=grey90
+"  highlight Cursor guibg=Green guifg=NONE
+"  highlight lCursor guibg=Cyan guifg=NONE
+"  highlight NonText guibg=grey80
+"  highlight Constant gui=NONE guibg=grey95
+"  highlight Special gui=NONE guibg=grey95
+
+endif
+
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .gvimrc source $HOME/_gvimrc
+endif
+
+"-----------------------
+" Plugin Lightline
+"-----------------------
+"wombat, solarized, powerline, jellybeans, Tomorrow,
+"Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Eighties,
+"landscape and 16color are available.
+"let g:lightline.colorscheme = 'wombat'
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
+      \   'right': [ ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'MyFugitive',
+      \   'filename': 'MyFilename',
+      \   'fileformat': 'MyFileformat',
+      \   'filetype': 'MyFiletype',
+      \   'fileencoding': 'MyFileencoding',
+      \   'mode': 'MyMode',
+      \   'ctrlpmark': 'CtrlPMark',
+      \ },
+      \ 'component_visible_condition': {
+      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+      \ },
+      \ }
+
+function! MyModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+  return &ft !~? 'help' && &readonly ? 'RO' : ''
+endfunction
+
+function! MyFilename()
+  let fname = expand('%:t')
+  return fname == 'ControlP' ? g:lightline.ctrlp_item :
+        \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFugitive()
+  try
+    if expand('%:t') !~? 'NERD' && exists('*fugitive#head')
+      let mark = ''  " edit here for cool mark
+      let _ = fugitive#head()
+      return strlen(_) ? mark._ : ''
+    endif
+  catch
+  endtry
+  return ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! MyFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! MyMode()
+  let fname = expand('%:t')
+  return fname == 'ControlP' ? 'CtrlP' :
+        \ fname =~ 'NERD_tree' ? 'NERDTree' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! CtrlPMark()
+  if expand('%:t') =~ 'ControlP'
+    call lightline#link('iR'[g:lightline.ctrlp_regex])
+    return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
+          \ , g:lightline.ctrlp_next], 0)
+  else
+    return ''
+  endif
+endfunction
+
+let g:ctrlp_status_func = {
+  \ 'main': 'CtrlPStatusFunc_1',
+  \ 'prog': 'CtrlPStatusFunc_2',
+  \ }
+
+function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
+  let g:lightline.ctrlp_regex = a:regex
+  let g:lightline.ctrlp_prev = a:prev
+  let g:lightline.ctrlp_item = a:item
+  let g:lightline.ctrlp_next = a:next
+  return lightline#statusline(0)
+endfunction
+
+function! CtrlPStatusFunc_2(str)
+  return lightline#statusline(0)
+endfunction
+
+function! TagbarStatusFunc(current, sort, fname, ...) abort
+    let g:lightline.fname = a:fname
+  return lightline#statusline(0)
+endfunction
+
+
+"-----------------------
+" Set color scheme that I like.
+"-----------------------
+if has("gui_running")
+    colorscheme solarized
+    let g:solarized_bold      =   0
+    let g:solarized_underline =   0
+    let g:solarized_italic    =   0
+else
+    colorscheme solarized
+    "colorscheme molokai
+endif
+
+set background=dark
+
+set linebreak
+" set clipboard=unnamed
+" nnoremap <esc> :noh<return><esc>
+" set    guifontwide=NSimsun:h12
+
