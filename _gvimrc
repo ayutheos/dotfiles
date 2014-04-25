@@ -20,6 +20,7 @@ if has("gui_running")
   " GUI is running or is about to start.
   " Maximize gvim window.
   set lines=999 columns=100
+  "source C:\Users\user\_gvimrc
 else
   " This is console Vim.
   if exists("+lines")
@@ -50,7 +51,7 @@ if version >= 500
   endif
 
   " Switch on search pattern highlighting.
-  set hlsearch
+  "set hlsearch
 
   " For Win32 version, have "K" lookup the keyword in a help file
   "if has("win32")
