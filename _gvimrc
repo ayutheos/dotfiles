@@ -86,10 +86,17 @@ endif
 "landscape and 16color are available.
 "let g:lightline.colorscheme = 'wombat'
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'powerline',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
-      \   'right': [ ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \   'left': [ 
+      \     [ 'mode', 'paste' ], 
+      \     [ 'fugitive', 'filename' ], 
+      \     [ 'ctrlpmark' ] 
+      \     ],
+      \   'right': [ 
+      \     [ 'percent' ], 
+      \     [ 'fileformat', 'fileencoding', 'filetype' ] 
+      \     ]
       \ },
       \ 'component_function': {
       \   'fugitive': 'MyFugitive',
@@ -115,10 +122,11 @@ endfunction
 
 function! MyFilename()
   let fname = expand('%:t')
-  return fname == 'ControlP' ? g:lightline.ctrlp_item :
+  let nr = bufnr('')
+  return nr . ':' . (fname == 'ControlP' ? g:lightline.ctrlp_item :
         \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
         \ ('' != fname ? fname : '[No Name]') .
-        \ ('' != MyModified() ? ' ' . MyModified() : '')
+        \ ('' != MyModified() ? ' ' . MyModified() : ''))
 endfunction
 
 function! MyFugitive()
