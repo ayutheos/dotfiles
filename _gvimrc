@@ -264,3 +264,10 @@ for buffer_no in range(10, 100)
   execute "nmap <Leader>0" . buffer_no . " :b" . buffer_no . "\<CR>"
 endfor
 
+"-----------------------
+" Plugin Calendar
+"-----------------------
+let g:calendar_options_split = 'vertical'
+let g:calendar_options_width = '27'
+let g:calendar_view = "year"
+
