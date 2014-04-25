@@ -3,6 +3,9 @@
 " Reference: Initially based on http://dev.gentoo.org/~ciaranm/docs/vim-guide/
 " License: www.opensource.org/licenses/bsd-license.php
 
+"-----------------------------------
+" Important
+"-----------------------------------
 set nocompatible
 
 execute pathogen#infect()
@@ -10,45 +13,42 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 
+if has("gui_running")
+    "source C:\Users\user\_vimrc
+endif
+
+"-----------------------------------
+" Options
+"-----------------------------------
+"" Moving around, searching & patterns:
+"set hlsearch                   " Highlight all matches for the last used search pattern
+set incsearch                  " Search as you type
+set ignorecase                 " Ignore case when searching
+set smartcase                  " Ignore case if search pattern is all lowercase,
+                               " case-sensitive otherwise
+
+"" Buffers
+set hidden
+
+"" Backup & swapfile:
 "set noswapfile
 set backupdir=d:\tmp
 set directory=d:\tmp
 
-set hidden
+"" Displaying text
 "set list
 
-" Enable syntax highlighting.
-syntax on
+"" Insert (Edit) Options:
+set backspace=indent,eol,start " Allow backspacing over everything in insert mode
+set autoindent
+set nopaste
+set pastetoggle=<F2>
+set nojoinspaces               " Don't insert 2 spaces when joining lines after ? . !
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start 
-
-" Automatically indent when adding a curly bracket, etc.
-set smartindent
-
-" Set nowrap
-set nowrap
-
-set nojs
-
-" Tabs should be converted to a group of 4 spaces.
-" This is the official Python convention
-" (http://www.python.org/dev/peps/pep-0008/)
-" I didn't find a good reason to not use it everywhere.
-set shiftwidth=4
-set tabstop=4
-set expandtab
-set smarttab
-
-" Minimal number of screen lines to keep above and below the cursor.
-" set scrolloff=999
-
-" Use UTF-8.
-set encoding=utf-8
-
-hi NonText gui=none
-
-" Status line
+"" Status / Command Line Options:
+set wildmenu                                 " Show autocomplete menus
+set showmode                                 " Show editing mode
+set showcmd                                  " Display incomplete commands
 set laststatus=2
 set statusline=
 set statusline+=%-3.3n\                      " buffer number
@@ -60,52 +60,76 @@ set statusline+=%=                           " right align remainder
 set statusline+=%-14(%l,%c%V%)               " line, character
 set statusline+=%<%P                         " file position
 
-" Show line number, cursor position.
-set ruler
+"" Interface options:
+set relativenumber
+set number
+set visualbell                               " Error bells are displayed visually
+set ruler                                    " Show line number, cursor position
 
-" Display incomplete commands.
-set showcmd
+"" Tabs and indenting:
+" Tabs should be converted to a group of 4 spaces.
+" This is the official Python convention
+" (http://www.python.org/dev/peps/pep-0008/)
+" I didn't find a good reason to not use it everywhere.
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
+set smartindent " Automatically indent when adding a curly bracket, etc.
 
-" Search as you type.
-set incsearch
-
-" Ignore case when searching.
-set ignorecase
-
-set smartcase     " ignore case if search pattern is all lowercase,
-                  " case-sensitive otherwise
-
-" Show autocomplete menus.
-set wildmenu
-
-" Show editing mode
-set showmode
-
-" Error bells are displayed visually.
-set visualbell
-
+"" Displaying text:
+set nowrap
+set listchars=tab:»\ ,trail:~,extends:»,nbsp:· ",eol:¶ " Use the same symbols as TextMate for tabstops and EOLs
+set encoding=utf-8                                     " Use UTF-8
 set fileencodings=utf-8,gk2312,gbk,gb18030
 set termencoding=utf-8set
 set guifontwide=NSimsun:h12
 set guifont=Consolas:h12
 set clipboard=unnamed
-"set rnu
-set nu
+
 let g:ragtag_global_maps = 1
+hi NonText gui=none
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""
-" Key bindings
-""""""""""""""""""""""""""""""""""""""""""""""""
 
-"nnoremap ; :
-"nnoremap : ;
+
+
+
+"-----------------------------------
+" Syntax, highlighting & spelling
+"-----------------------------------
+
+"-----------------------------------
+" Multiple tab pages
+"-----------------------------------
+
+"-----------------------------------
+" Selecting text
+"-----------------------------------
+
+syntax on " Enable syntax highlighting
+
+" Minimal number of screen lines to keep above and below the cursor.
+" set scrolloff=999
+
+
+
+"-----------------------------------
+" Mappings
+"-----------------------------------
 
 " change the mapleader from \ to ,
 let mapleader=","
 
+"nnoremap ; :
+"nnoremap : ;
+
+" F1 to be a context sensitive keyword-under-cursor lookup
+nnoremap <F1> :help <C-R><C-W><CR>
+
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :tabe $MYVIMRC<CR>
+nmap <silent> <leader>gv :tabe $MYGVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Indent in normal mode using Tab
@@ -125,9 +149,15 @@ imap <c-s> <Esc>:w<CR>a
 
 " To paste, press ctrl-v.
 imap <c-v> <Esc>"+gpi
-set pastetoggle=<F2>
 
-nmap <F5> :NERDTreeToggle documents<CR>
+nmap <F5> :NERDTreeToggle<CR>
+
+" Wrapped lines goes down/up to next row, rather than next line in file.
+nnoremap j gj
+nnoremap k gk
+
+" Yank from the cursor to the end of the line, to be consistent with C and D.
+nnoremap Y y$
 
 inoremap <M-o>       <Esc>o
 inoremap <C-j>       <Down>
@@ -169,16 +199,11 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Shortcut to rapidly toggle `set list`
-nmap <leader>l :set list!<CR>
+"nmap <leader>l :set list!<CR>
 
 " Use Q for formatting the current paragraph (or selection)
 vmap Q gq
 nmap Q gqip
-
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:»\ ,trail:~,extends:»,nbsp:· ",eol:¶
-
-runtime bundle/dragvisuals/plugin/dragvisuals.vim
 
 vmap  <expr>  <S-LEFT>   DVB_Drag('left')
 vmap  <expr>  <S-RIGHT>  DVB_Drag('right')
@@ -188,16 +213,30 @@ vmap  <expr>  <S-UP>     DVB_Drag('up')
 " Delete trailing white space and Dos-returns and to expand tabs to spaces.
 nnoremap <Leader>t :%s:[\r \t]\+$<CR>
 
+" Delete buffer
+nmap <leader>bd :bp<bar>sp<bar>bn<bar>bd
+
+" change to directory of current file
+nmap <leader>cd :cd %:h<cr>
+
+"-----------------------------------
+" Auto commands
+"-----------------------------------
 if exists("did_load_filetypes")
   finish
 endif
 augroup filetypedetect
-  au! BufNewFile,BufRead *.ly           setf lilypond
+  au! BufNewFile,BufRead *.ly
+        \ setf lilypond
+        \ filetype off
+        \ set runtimepath+='C:\Program Files (x86)\LilyPond\usr\share\lilypond\current\vim'
+        \ filetype on
+        \ syntax on
   au! BufNewFile,BufRead *.asciidoc,*.adoc  setf asciidoc
   au! BufRead *.lyx set syntax=lyx foldmethod=syntax foldcolumn=3
   au! BufRead *.lyx syntax sync fromstart
 
-  autocmd BufRead,BufNewFile *.txt,*.asciidoc,README,TODO,CHANGELOG,NOTES,ABOUT
+  autocmd! BufRead,BufNewFile *.txt,*.asciidoc,README,TODO,CHANGELOG,NOTES,ABOUT
         \ setlocal filetype=asciidoc
         \ textwidth=80 wrap formatoptions=tcqn
         \ formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\\|^\\s*<\\d\\+>\\s\\+\\\\|^\\s*[a-zA-Z.]\\.\\s\\+\\\\|^\\s*[ivxIVX]\\+\\.\\s\\+
@@ -205,6 +244,8 @@ augroup filetypedetect
 
 augroup END
 
+au! BufWritePost .vimrc source %
+au! BufWritePost _vimrc source %
 " Plugin EasyMotion
 let g:EasyMotion_grouping = 2
 hi link EasyMotionTarget ErrorMsg
