@@ -256,7 +256,44 @@ au! BufWritePost _vimrc source %
 runtime bundle/dragvisuals/plugin/dragvisuals.vim
 
 " Plugin EasyMotion
-let g:EasyMotion_grouping = 2
-hi link EasyMotionTarget ErrorMsg
+"-----------------------
+let g:EasyMotion_re_anywhere = '\v' .
+    \       '(<.|^$)' . '|' .
+    \       '(.>|^$)' . '|' .
+    \       '(\l)\zs(\u)' . '|' .
+    \       '(_\zs.)' . '|' .
+    \       '(#\zs.)'
+
+"hi link EasyMotionTarget        WarningMsg
+"hi link EasyMotionShade         WarningMsg
+"hi link EasyMotionTarget2First  MatchParen
+"hi link EasyMotionTarget2Second MatchParen
+"hi link EasyMotionMoveHL Search
+map  /         <Plug>(easymotion-sn)
+omap /         <Plug>(easymotion-tn)
+map  n         <Plug>(easymotion-next)
+map  N         <Plug>(easymotion-prev)
+map  f         <Plug>(easymotion-bd-f)
+map  t         <Plug>(easymotion-bd-t)
+nmap s         <Plug>(easymotion-s2)
+map  <Leader>h <Plug>(easymotion-lineforward)
+map  <Leader>j <Plug>(easymotion-j)
+map  <Leader>k <Plug>(easymotion-k)
+map  <Leader>l <Plug>(easymotion-linebackward)
+
+" Turn on case sensitive feature
+let g:EasyMotion_smartcase = 1
+
+" keep cursor colum when JK motion
+let g:EasyMotion_startofline = 0 
+
+let g:EasyMotion_grouping = 1
+
+let g:EasyMotion_keys='l,rcpgyf;zqvjwkmasonetuh'
+" default 'asdghklqwertyuiopzxcvbnmfj;'
+
+let g:EasyMotion_do_shade = 0
+"let g:EasyMotion_use_upper = 1
+let g:EasyMotion_enter_jump_first = 1
 
 
