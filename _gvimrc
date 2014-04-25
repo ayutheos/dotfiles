@@ -225,3 +225,12 @@ nmap  <leader>-  :ChooseWin<cr>
 
 let g:choosewin_blink_on_land      = 0 " dont' blink at land
 
+"-----------------------
+" Plugin Ctrl-P
+"-----------------------
+let g:ctrlp_map = ''
+"let g:ctrlp_cmd = 'CtrlPMRU'
+nmap <c-m> :CtrlPMRU<cr>
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_show_hidden = 0
+
