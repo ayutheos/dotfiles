@@ -296,4 +296,10 @@ let g:EasyMotion_do_shade = 0
 "let g:EasyMotion_use_upper = 1
 let g:EasyMotion_enter_jump_first = 1
 
+" Plugin Goyo
+"-----------------------
+"let g:goyo_width = 85             " (default: 80)
+"let g:goyo_margin_top = 1    " (default: 4)
+"let g:goyo_margin_bottom = 1 " (default: 4)
+
 
