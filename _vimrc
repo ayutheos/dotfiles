@@ -246,6 +246,15 @@ augroup END
 
 au! BufWritePost .vimrc source %
 au! BufWritePost _vimrc source %
+
+"-----------------------------------
+" Plugins
+"-----------------------------------
+
+" Plugin dragvisuals
+"-----------------------
+runtime bundle/dragvisuals/plugin/dragvisuals.vim
+
 " Plugin EasyMotion
 let g:EasyMotion_grouping = 2
 hi link EasyMotionTarget ErrorMsg
