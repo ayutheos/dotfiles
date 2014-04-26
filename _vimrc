@@ -4,7 +4,7 @@
 " License: www.opensource.org/licenses/bsd-license.php
 
 "-----------------------------------
-" Important
+" Important {{{
 "-----------------------------------
 set nocompatible
 
@@ -16,36 +16,42 @@ filetype plugin indent on
 if has("gui_running")
     "source C:\Users\user\_vimrc
 endif
+" }}}
 
 "-----------------------------------
-" Options
+" Options {{{
 "-----------------------------------
-"" Moving around, searching & patterns:
+"" Moving around, searching & patterns: {{{2
 "set hlsearch                   " Highlight all matches for the last used search pattern
 set incsearch                  " Search as you type
 set ignorecase                 " Ignore case when searching
 set smartcase                  " Ignore case if search pattern is all lowercase,
                                " case-sensitive otherwise
+" }}}
 
-"" Buffers
+"" Buffers {{{2
 set hidden
+" }}}
 
-"" Backup & swapfile:
+"" Backup & swapfile: {{{2
 "set noswapfile
 set backupdir=d:\tmp
 set directory=d:\tmp
+" }}}
 
-"" Displaying text
+"" Displaying text {{{2
 "set list
+"" }}}
 
-"" Insert (Edit) Options:
+"" Insert (Edit) Options: {{{2
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode
 set autoindent
 set nopaste
 set pastetoggle=<F2>
 set nojoinspaces               " Don't insert 2 spaces when joining lines after ? . !
+" }}}
 
-"" Status / Command Line Options:
+"" Status / Command Line Options: {{{2
 set wildmenu                                 " Show autocomplete menus
 set showmode                                 " Show editing mode
 set showcmd                                  " Display incomplete commands
@@ -59,14 +65,16 @@ set statusline+=%=                           " right align remainder
 "set statusline+=0x%-8B                       " character value
 set statusline+=%-14(%l,%c%V%)               " line, character
 set statusline+=%<%P                         " file position
+" }}}
 
-"" Interface options:
+"" Interface options: {{{2
 set relativenumber
 set number
 set visualbell                               " Error bells are displayed visually
 set ruler                                    " Show line number, cursor position
+" }}}
 
-"" Tabs and indenting:
+"" Tabs and indenting: {{{2
 " Tabs should be converted to a group of 4 spaces.
 " This is the official Python convention
 " (http://www.python.org/dev/peps/pep-0008/)
@@ -76,8 +84,9 @@ set shiftwidth=4
 set smarttab
 set expandtab
 set smartindent " Automatically indent when adding a curly bracket, etc.
+" }}}
 
-"" Displaying text:
+"" Displaying text: {{{2
 set nowrap
 set listchars=tab:»\ ,trail:~,extends:»,nbsp:· ",eol:¶ " Use the same symbols as TextMate for tabstops and EOLs
 set encoding=utf-8                                     " Use UTF-8
@@ -89,11 +98,8 @@ set clipboard=unnamed
 
 let g:ragtag_global_maps = 1
 hi NonText gui=none
-
-
-
-
-
+" }}}
+" }}}
 
 "-----------------------------------
 " Syntax, highlighting & spelling
@@ -104,7 +110,7 @@ hi NonText gui=none
 "-----------------------------------
 
 "-----------------------------------
-" Selecting text
+" Selecting text {{{
 "-----------------------------------
 
 syntax on " Enable syntax highlighting
@@ -112,10 +118,10 @@ syntax on " Enable syntax highlighting
 " Minimal number of screen lines to keep above and below the cursor.
 " set scrolloff=999
 
-
+" }}}
 
 "-----------------------------------
-" Mappings
+" Mappings {{{
 "-----------------------------------
 
 " change the mapleader from \ to ,
@@ -218,9 +224,10 @@ nmap <leader>bd :bp<bar>sp<bar>bn<bar>bd
 
 " change to directory of current file
 nmap <leader>cd :cd %:h<cr>
+" }}}
 
 "-----------------------------------
-" Auto commands
+" Auto commands {{{
 "-----------------------------------
 if exists("did_load_filetypes")
   finish
@@ -246,16 +253,18 @@ augroup END
 
 au! BufWritePost .vimrc source %
 au! BufWritePost _vimrc source %
+" }}}
 
 "-----------------------------------
 " Plugins
 "-----------------------------------
 
-" Plugin dragvisuals
+" Plugin dragvisuals {{{
 "-----------------------
 runtime bundle/dragvisuals/plugin/dragvisuals.vim
+" }}}
 
-" Plugin EasyMotion
+" Plugin EasyMotion {{{
 "-----------------------
 let g:EasyMotion_re_anywhere = '\v' .
     \       '(<.|^$)' . '|' .
@@ -295,11 +304,13 @@ let g:EasyMotion_keys='l,rcpgyf;zqvjwkmasonetuh'
 let g:EasyMotion_do_shade = 0
 "let g:EasyMotion_use_upper = 1
 let g:EasyMotion_enter_jump_first = 1
+" }}}
 
-" Plugin Goyo
+" Plugin Goyo {{{
 "-----------------------
 "let g:goyo_width = 85             " (default: 80)
 "let g:goyo_margin_top = 1    " (default: 4)
 "let g:goyo_margin_bottom = 1 " (default: 4)
+" }}}
 
-
+" vim: set foldmethod=marker :

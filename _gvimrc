@@ -79,7 +79,7 @@ if has("autocmd")
 endif
 
 "-----------------------
-" Plugin Lightline
+" Plugin Lightline {{{
 "-----------------------
 "wombat, solarized, powerline, jellybeans, Tomorrow,
 "Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Eighties,
@@ -191,10 +191,11 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
     let g:lightline.fname = a:fname
   return lightline#statusline(0)
 endfunction
+" }}}
 
 
 "-----------------------
-" Set color scheme that I like.
+" Set color scheme that I like. {{{
 "-----------------------
 if has("gui_running")
     colorscheme solarized
@@ -212,9 +213,10 @@ set linebreak
 " set clipboard=unnamed
 " nnoremap <esc> :noh<return><esc>
 " set    guifontwide=NSimsun:h12
+" }}}
 
 "-----------------------
-" Plugin Choosewin
+" Plugin Choosewin {{{
 "-----------------------
 nmap  <leader>-  :ChooseWin<cr>
 " if you want to use overlay feature
@@ -224,18 +226,20 @@ nmap  <leader>-  :ChooseWin<cr>
 "let g:choosewin_overlay_clear_multibyte = 1
 
 let g:choosewin_blink_on_land      = 0 " dont' blink at land
+" }}}
 
 "-----------------------
-" Plugin Ctrl-P
+" Plugin Ctrl-P {{{
 "-----------------------
 let g:ctrlp_map = ''
 "let g:ctrlp_cmd = 'CtrlPMRU'
 nmap <c-m> :CtrlPMRU<cr>
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_show_hidden = 0
+"}}}
 
 "-----------------------
-" Plugin MiniBufExpl
+" Plugin MiniBufExpl {{{
 "-----------------------
 map <Leader>mb :MBEToggle<cr>
 let g:miniBufExplAutoStart = 0
@@ -263,15 +267,18 @@ endfor
 for buffer_no in range(10, 100)
   execute "nmap <Leader>0" . buffer_no . " :b" . buffer_no . "\<CR>"
 endfor
+" }}}
 
 "-----------------------
-" Plugin Calendar
+" Plugin Calendar {{{
 "-----------------------
 let g:calendar_options_split = 'vertical'
 let g:calendar_options_width = '27'
 let g:calendar_view = "year"
+" }}}
 
-" Plugin vim-easy-align
+"-----------------------
+" Plugin vim-easy-align {{{
 "-----------------------
 vmap <Enter>           <Plug>(EasyAlign)
 nmap <Leader>a         <Plug>(EasyAlign)
@@ -283,8 +290,10 @@ if !exists('g:easy_align_delimiters')
 endif
 let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
 let g:easy_align_delimiters['"'] = { 'pattern': '"', 'ignore_groups': ['String'] }
+" }}}
 
-" Plugin EasyMotion
+"-----------------------
+" Plugin EasyMotion {{{
 "-----------------------
 let g:EasyMotion_re_anywhere = '\v' .
     \       '(<.|^$)' . '|' .
@@ -324,9 +333,13 @@ let g:EasyMotion_keys='l,rcpgyf;zqvjwkmasonetuh'
 let g:EasyMotion_do_shade = 0
 "let g:EasyMotion_use_upper = 1
 let g:EasyMotion_enter_jump_first = 1
+" }}}
 
-" Plugin Goyo
+"-----------------------
+" Plugin Goyo {{{
 "-----------------------
 let g:goyo_width = 90        " (default: 80)
 let g:goyo_margin_top = 1    " (default: 4)
 let g:goyo_margin_bottom = 1 " (default: 4)
+" }}}
+" vim: set foldmethod=marker :
