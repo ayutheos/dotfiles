@@ -94,7 +94,7 @@ let g:lightline = {
       \     [ 'ctrlpmark' ] 
       \     ],
       \   'right': [ 
-      \     [ 'percent' ], 
+      \     [ 'lineinfo' ], [ 'percent' ],
       \     [ 'fileformat', 'fileencoding', 'filetype' ] 
       \     ]
       \ },
