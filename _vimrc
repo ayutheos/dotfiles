@@ -71,7 +71,8 @@ set statusline+=%<%P                         " file position
 set relativenumber
 set number
 set visualbell                               " Error bells are displayed visually
-set ruler                                    " Show line number, cursor position
+set noruler                                  " Show line number, cursor position
+set rulerformat=%15(%c%V\ %p%%%)
 " }}}
 
 "" Tabs and indenting: {{{2
