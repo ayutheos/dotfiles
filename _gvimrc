@@ -347,4 +347,30 @@ let g:goyo_margin_bottom = 1 " (default: 4)
 "-----------------------
 let dokuwiki_comment=1
 " }}}
+
+" Plugin vim-expand-region {{{
+"-----------------------
+"map v <Plug>(expand_region_expand)
+"map J <Plug>(expand_region_shrink)
+
+" Default settings. (NOTE: Remove comments in dictionary before sourcing)
+let g:expand_region_text_objects = {
+      \ 'iw'  :0,
+      \ 'iW'  :0,
+      \ 'is'  :0,
+      \ 'iS'  :0,
+      \ 'i"'  :0,
+      \ 'i''' :0,
+      \ 'i]'  :1,
+      \ 'ib'  :1,
+      \ 'iB'  :1,
+      \ 'il'  :0,
+      \ 'ip'  :0,
+      \ 'ie'  :0,
+      \ }
+
+" }}}
+
+
+
 " vim: set foldmethod=marker :
