@@ -236,6 +236,7 @@ let g:ctrlp_map = ''
 nmap <c-m> :CtrlPMRU<cr>
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_show_hidden = 0
+let g:ctrlp_open_multiple_files = '2vjr'
 "}}}
 
 "-----------------------
