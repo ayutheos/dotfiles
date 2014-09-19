@@ -73,6 +73,7 @@ set number
 set visualbell                               " Error bells are displayed visually
 set noruler                                  " Show line number, cursor position
 set rulerformat=%15(%c%V\ %p%%%)
+set scrolloff=1
 " }}}
 
 "" Tabs and indenting: {{{2
@@ -96,6 +97,7 @@ set termencoding=utf-8set
 set guifontwide=NSimsun:h12
 set guifont=Consolas:h12
 set clipboard=unnamed
+set foldlevelstart=3
 
 let g:ragtag_global_maps = 1
 hi NonText gui=none
@@ -131,6 +133,9 @@ let mapleader=","
 "nnoremap ; :
 "nnoremap : ;
 
+nnoremap ` '
+nnoremap ' `
+
 " F1 to be a context sensitive keyword-under-cursor lookup
 nnoremap <F1> :help <C-R><C-W><CR>
 
@@ -155,7 +160,7 @@ nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
 
 " To paste, press ctrl-v.
-imap <c-v> <Esc>"+gpi
+imap <c-v> <c-o>"+gp
 
 nmap <F5> :NERDTreeToggle<CR>
 
@@ -166,10 +171,12 @@ nnoremap k gk
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
 
-inoremap <M-o>       <Esc>o
-inoremap <C-j>       <Down>
-nnoremap <esc>       :noh<return><esc>
-imap     zz          <esc>
+"inoremap <M-o>       <Esc>o
+"inoremap <C-j>       <Down>
+nnoremap <esc>        :noh<return><esc>
+inoremap ;;           <esc>
+inoremap <S-CR>       <esc>
+cmap     ;;           <C-c>
 
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
