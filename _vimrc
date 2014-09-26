@@ -140,27 +140,27 @@ nnoremap ' `
 nnoremap <F1> :help <C-R><C-W><CR>
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :tabe $MYVIMRC<CR>
-nmap <silent> <leader>gv :tabe $MYGVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nnoremap <silent> <leader>ev :tabe $MYVIMRC<CR>
+nnoremap <silent> <leader>gv :tabe $MYGVIMRC<CR>
+nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Indent in normal mode using Tab
-nmap <tab> >>
+nnoremap <tab> >>
 
 " Unindent using shift-tab
-nmap <S-Tab> <<
-imap <S-Tab> <C-o><<
+nnoremap <S-Tab> <<
+inoremap <S-Tab> <C-o><<
 
 " To insert timestamp, press F3.
 nmap <F3> a<C-R>=strftime("%Y.%m.%d %a %I:%M%p")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y.%m.%d %a %I:%M%p")<CR>
 
 " To save, press ctrl-s.
-nmap <c-s> :w<CR>
-imap <c-s> <Esc>:w<CR>a
+nnoremap <c-s> :w<CR>
+inoremap <c-s> <Esc>:w<CR>a
 
 " To paste, press ctrl-v.
-imap <c-v> <c-o>"+gp
+inoremap <c-v> <c-o>"+gp
 
 nmap <F5> :NERDTreeToggle<CR>
 
@@ -173,10 +173,13 @@ nnoremap Y y$
 
 "inoremap <M-o>       <Esc>o
 "inoremap <C-j>       <Down>
+
+" Remap <esc> to ;;
 nnoremap <esc>        :noh<return><esc>
 inoremap ;;           <esc>
 inoremap <S-CR>       <esc>
-cmap     ;;           <C-c>
+cnoremap ;;           <C-c>
+vnoremap ;;           <C-c>
 
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
@@ -216,13 +219,8 @@ vnoremap > >gv
 "nmap <leader>l :set list!<CR>
 
 " Use Q for formatting the current paragraph (or selection)
-vmap Q gq
-nmap Q gqip
-
-vmap  <expr>  <S-LEFT>   DVB_Drag('left')
-vmap  <expr>  <S-RIGHT>  DVB_Drag('right')
-vmap  <expr>  <S-DOWN>   DVB_Drag('down')
-vmap  <expr>  <S-UP>     DVB_Drag('up')
+vnoremap Q gq
+nnoremap Q gqip
 
 " Delete trailing white space and Dos-returns and to expand tabs to spaces.
 nnoremap <Leader>t :%s:[\r \t]\+$<CR>
@@ -230,8 +228,9 @@ nnoremap <Leader>t :%s:[\r \t]\+$<CR>
 " Delete buffer
 nmap <leader>bd :bp<bar>sp<bar>bn<bar>bd
 
-" change to directory of current file
-nmap <leader>cd :cd %:h<cr>
+" Change to directory of current file
+nnoremap <leader>cd :cd %:h<cr>
+
 " }}}
 
 "-----------------------------------
