@@ -267,8 +267,24 @@ au! BufWritePost _vimrc source %
 " Plugins
 "-----------------------------------
 
+" Plugin NERDTree {{{
+"-----------------------
+" Mappings {{{
+nnoremap <F5> :NERDTreeToggle<CR>
+" }}}
+
+" }}}
+
 " Plugin dragvisuals {{{
 "-----------------------
+" Mappings {{{
+vnoremap  <expr>  <S-LEFT>   DVB_Drag('left')
+vnoremap  <expr>  <S-RIGHT>  DVB_Drag('right')
+vnoremap  <expr>  <S-DOWN>   DVB_Drag('down')
+vnoremap  <expr>  <S-UP>     DVB_Drag('up')
+
+" }}}
+
 runtime bundle/dragvisuals/plugin/dragvisuals.vim
 " }}}
 
@@ -286,6 +302,8 @@ let g:EasyMotion_re_anywhere = '\v' .
 "hi link EasyMotionTarget2First  MatchParen
 "hi link EasyMotionTarget2Second MatchParen
 "hi link EasyMotionMoveHL Search
+
+" Mappings {{{
 map  /         <Plug>(easymotion-sn)
 omap /         <Plug>(easymotion-tn)
 map  n         <Plug>(easymotion-next)
