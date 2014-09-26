@@ -13,9 +13,10 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 
-if has("gui_running")
-    "source C:\Users\user\_vimrc
-endif
+"if has("gui_running")
+"    source $USERPROFILE\_vimrc
+"endif
+
 " }}}
 
 "-----------------------------------
@@ -162,7 +163,8 @@ inoremap <c-s> <Esc>:w<CR>a
 " To paste, press ctrl-v.
 inoremap <c-v> <c-o>"+gp
 
-nmap <F5> :NERDTreeToggle<CR>
+" Map spacebar to toggle folds
+nnoremap <Space> zazt
 
 " Wrapped lines goes down/up to next row, rather than next line in file.
 nnoremap j gj
@@ -170,6 +172,9 @@ nnoremap k gk
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
+
+" Select to the last non-blank character of the current line
+vnoremap $ g_
 
 "inoremap <M-o>       <Esc>o
 "inoremap <C-j>       <Down>
@@ -192,7 +197,7 @@ nnoremap <silent><A-k> :set paste<CR>m`O<Esc>:set nopaste<CR>
 " Shift-k split line before cursor
 nnoremap <S-k>      i<CR><esc>
 
-"Dokuwiki mapping
+" Dokuwiki mapping
 " Increase heading by one level
 nnoremap == 0i=<end>=<esc>0
 
@@ -211,7 +216,7 @@ nnoremap ,,h3 I==== <esc>A ====<esc>0
 nnoremap ,,h4 I=== <esc>A ===<esc>0
 nnoremap ,,h5 I== <esc>A ==<esc>0
 
-"Reselect after indent so it can easily be repeated
+" Reselect after indent so it can easily be repeated
 vnoremap < <gv
 vnoremap > >gv
 
@@ -225,11 +230,15 @@ nnoremap Q gqip
 " Delete trailing white space and Dos-returns and to expand tabs to spaces.
 nnoremap <Leader>t :%s:[\r \t]\+$<CR>
 
-" Delete buffer
+" Delete buffer and loads next buffer in list
 nmap <leader>bd :bp<bar>sp<bar>bn<bar>bd
 
 " Change to directory of current file
 nnoremap <leader>cd :cd %:h<cr>
+
+" Toggle case
+nnoremap \ ~<left>
+vnoremap \ ~
 
 " }}}
 
@@ -239,31 +248,34 @@ nnoremap <leader>cd :cd %:h<cr>
 if exists("did_load_filetypes")
   finish
 endif
+
 augroup filetypedetect
-  au! BufNewFile,BufRead *.ly
-        \ setf lilypond
-        \ filetype off
-        \ set runtimepath+='C:\Program Files (x86)\LilyPond\usr\share\lilypond\current\vim'
-        \ filetype on
-        \ syntax on
-  au! BufNewFile,BufRead *.asciidoc,*.adoc  setf asciidoc
-  au! BufRead *.lyx set syntax=lyx foldmethod=syntax foldcolumn=3
-  au! BufRead *.lyx syntax sync fromstart
+    autocmd! BufNewFile,BufRead *.ly
+       \ setf lilypond
+       \ filetype off
+       \ set runtimepath+='C:\Program Files (x86)\LilyPond\usr\share\lilypond\current\vim'
+       \ filetype on
+       \ syntax on
+    autocmd! BufNewFile,BufRead *.asciidoc,*.adoc  setf asciidoc
+    autocmd! BufRead *.lyx set syntax=lyx foldmethod=syntax foldcolumn=3
+    autocmd! BufRead *.lyx syntax sync fromstart
 
-  autocmd! BufRead,BufNewFile *.txt,*.asciidoc,README,TODO,CHANGELOG,NOTES,ABOUT
-        \ setlocal filetype=asciidoc
-        \ textwidth=80 wrap formatoptions=tcqn
-        \ formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\\|^\\s*<\\d\\+>\\s\\+\\\\|^\\s*[a-zA-Z.]\\.\\s\\+\\\\|^\\s*[ivxIVX]\\+\\.\\s\\+
-        \ comments=s1:/*,ex:*/,://,b:#,:%,:XCOMM,fb:-,fb:*,fb:+,fb:.,fb:>
-
+    autocmd! BufRead,BufNewFile *.txt,*.asciidoc,README,TODO,CHANGELOG,NOTES,ABOUT
+       \ setlocal filetype=asciidoc
+       \ textwidth=80 wrap formatoptions=tcqn
+       \ formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\\|^\\s*<\\d\\+>\\s\\+\\\\|^\\s*[a-zA-Z.]\\.\\s\\+\\\\|^\\s*[ivxIVX]\\+\\.\\s\\+
+       \ comments=s1:/*,ex:*/,://,b:#,:%,:XCOMM,fb:-,fb:*,fb:+,fb:.,fb:>
 augroup END
 
-au! BufWritePost .vimrc source %
-au! BufWritePost _vimrc source %
+augroup vimrc
+    au! BufWritePost .vimrc source $MYVIMRC
+    au! BufWritePost _vimrc source $MYVIMRC
+augroup END
+
 " }}}
 
 "-----------------------------------
-" Plugins
+" Plugins {{{
 "-----------------------------------
 
 " Plugin NERDTree {{{
@@ -314,6 +326,7 @@ map  <Leader>h <Plug>(easymotion-lineforward)
 map  <Leader>j <Plug>(easymotion-j)
 map  <Leader>k <Plug>(easymotion-k)
 map  <Leader>l <Plug>(easymotion-linebackward)
+" }}}
 
 " Turn on case sensitive feature
 let g:EasyMotion_smartcase = 1
@@ -338,4 +351,6 @@ let g:EasyMotion_enter_jump_first = 1
 "let g:goyo_margin_bottom = 1 " (default: 4)
 " }}}
 
-" vim: set foldmethod=marker :
+" }}}
+
+" vim: set foldmethod=marker foldlevel=0 :
