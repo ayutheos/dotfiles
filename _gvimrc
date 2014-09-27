@@ -376,4 +376,4 @@ let g:expand_region_text_objects = {
 
 
 
-" vim: set foldmethod=marker :
+" vim: set foldmethod=marker foldlevel=0 :
