@@ -227,8 +227,8 @@ let g:choosewin_blink_on_land      = 0 " dont' blink at land
 " Plugin Ctrl-P {{{
 "-----------------------
 " Mappings {{{
-nnoremap <c-m> :CtrlPMRU<cr>
-nnoremap <c-b> :CtrlPBuffer<cr>
+nnoremap <leader>mr :CtrlPMRU<cr>
+nnoremap <leader>bu :CtrlPBuffer<cr>
 "}}}
 
 let g:ctrlp_map = ''
