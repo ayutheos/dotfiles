@@ -31,9 +31,9 @@ else
   endif
 endif
 
-set ch=2		" Make command line two lines high
+set ch=2         " Make command line two lines high
 
-set mousehide		" Hide the mouse when typing text
+set mousehide    " Hide the mouse when typing text
 
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
@@ -231,9 +231,13 @@ let g:choosewin_blink_on_land      = 0 " dont' blink at land
 "-----------------------
 " Plugin Ctrl-P {{{
 "-----------------------
+" Mappings {{{
+nnoremap <c-m> :CtrlPMRU<cr>
+nnoremap <c-b> :CtrlPBuffer<cr>
+"}}}
+
 let g:ctrlp_map = ''
 "let g:ctrlp_cmd = 'CtrlPMRU'
-nmap <c-m> :CtrlPMRU<cr>
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_show_hidden = 0
 let g:ctrlp_open_multiple_files = '2vjr'
@@ -242,7 +246,10 @@ let g:ctrlp_open_multiple_files = '2vjr'
 "-----------------------
 " Plugin MiniBufExpl {{{
 "-----------------------
-map <Leader>mb :MBEToggle<cr>
+" Mappings {{{
+noremap <Leader>mb :MBEToggle<cr>
+"}}}
+
 let g:miniBufExplAutoStart = 0
 let g:miniBufExplBuffersNeeded = 2
 "for buffers that have NOT CHANGED and are NOT VISIBLE
@@ -261,7 +268,7 @@ hi link MBEVisibleActiveChanged Title
 
 " switching to buffer 1 - 9 is mapped to ,[nOfBuffer]
 for buffer_no in range(1, 9)
-  execute "nmap <Leader>" . buffer_no . " :b" . buffer_no . "\<CR>"
+  execute "nnoremap <Leader>" . buffer_no . " :b" . buffer_no . "\<CR>"
 endfor
 
 " switching to buffer 10 - 100 is mapped to ,0[nOfBuffer]
@@ -281,10 +288,12 @@ let g:calendar_view = "year"
 "-----------------------
 " Plugin vim-easy-align {{{
 "-----------------------
-vmap <Enter>           <Plug>(EasyAlign)
-nmap <Leader>a         <Plug>(EasyAlign)
-vmap <Leader><Enter>   <Plug>(LiveEasyAlign)
-nmap <Leader><Leader>a <Plug>(LiveEasyAlign)
+" Mappings {{{
+vnoremap <Enter>           <Plug>(EasyAlign)
+nnoremap <Leader>a         <Plug>(EasyAlign)
+vnoremap <Leader><Enter>   <Plug>(LiveEasyAlign)
+nnoremap <Leader><Leader>a <Plug>(LiveEasyAlign)
+"}}}
 
 if !exists('g:easy_align_delimiters')
   let g:easy_align_delimiters = {}
@@ -296,6 +305,20 @@ let g:easy_align_delimiters['"'] = { 'pattern': '"', 'ignore_groups': ['String']
 "-----------------------
 " Plugin EasyMotion {{{
 "-----------------------
+" Mappings {{{
+map  /         <Plug>(easymotion-sn)
+omap /         <Plug>(easymotion-tn)
+map  n         <Plug>(easymotion-next)
+map  N         <Plug>(easymotion-prev)
+map  f         <Plug>(easymotion-bd-f)
+map  t         <Plug>(easymotion-bd-t)
+nmap s         <Plug>(easymotion-s2)
+map  <Leader>h <Plug>(easymotion-lineforward)
+map  <Leader>j <Plug>(easymotion-j)
+map  <Leader>k <Plug>(easymotion-k)
+map  <Leader>l <Plug>(easymotion-linebackward)
+"}}}
+
 let g:EasyMotion_re_anywhere = '\v' .
     \       '(<.|^$)' . '|' .
     \       '(.>|^$)' . '|' .
@@ -308,17 +331,6 @@ let g:EasyMotion_re_anywhere = '\v' .
 "hi link EasyMotionTarget2First  MatchParen
 "hi link EasyMotionTarget2Second MatchParen
 "hi link EasyMotionMoveHL Search
-map  /         <Plug>(easymotion-sn)
-omap /         <Plug>(easymotion-tn)
-map  n         <Plug>(easymotion-next)
-map  N         <Plug>(easymotion-prev)
-map  f         <Plug>(easymotion-bd-f)
-map  t         <Plug>(easymotion-bd-t)
-nmap s         <Plug>(easymotion-s2)
-map  <Leader>h <Plug>(easymotion-lineforward)
-map  <Leader>j <Plug>(easymotion-j)
-map  <Leader>k <Plug>(easymotion-k)
-map  <Leader>l <Plug>(easymotion-linebackward)
 
 " Turn on case sensitive feature
 let g:EasyMotion_smartcase = 1
@@ -344,11 +356,13 @@ let g:goyo_margin_top = 1    " (default: 4)
 let g:goyo_margin_bottom = 1 " (default: 4)
 " }}}
 
+"-----------------------
 " Plugin Dokuwiki {{{
 "-----------------------
 let dokuwiki_comment=1
 " }}}
 
+"-----------------------
 " Plugin vim-expand-region {{{
 "-----------------------
 "map v <Plug>(expand_region_expand)
