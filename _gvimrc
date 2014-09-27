@@ -78,7 +78,6 @@ if has("autocmd")
   autocmd bufwritepost .gvimrc source $HOME/_gvimrc
 endif
 
-"-----------------------
 " Plugin Lightline {{{
 "-----------------------
 "wombat, solarized, powerline, jellybeans, Tomorrow,
@@ -193,8 +192,6 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
 endfunction
 " }}}
 
-
-"-----------------------
 " Set color scheme that I like. {{{
 "-----------------------
 if has("gui_running")
@@ -215,7 +212,6 @@ set linebreak
 " set    guifontwide=NSimsun:h12
 " }}}
 
-"-----------------------
 " Plugin Choosewin {{{
 "-----------------------
 nmap  <leader>-  :ChooseWin<cr>
@@ -228,7 +224,6 @@ nmap  <leader>-  :ChooseWin<cr>
 let g:choosewin_blink_on_land      = 0 " dont' blink at land
 " }}}
 
-"-----------------------
 " Plugin Ctrl-P {{{
 "-----------------------
 " Mappings {{{
@@ -243,7 +238,6 @@ let g:ctrlp_show_hidden = 0
 let g:ctrlp_open_multiple_files = '2vjr'
 "}}}
 
-"-----------------------
 " Plugin MiniBufExpl {{{
 "-----------------------
 " Mappings {{{
@@ -277,7 +271,6 @@ for buffer_no in range(10, 100)
 endfor
 " }}}
 
-"-----------------------
 " Plugin Calendar {{{
 "-----------------------
 let g:calendar_options_split = 'vertical'
@@ -285,7 +278,6 @@ let g:calendar_options_width = '27'
 let g:calendar_view = "year"
 " }}}
 
-"-----------------------
 " Plugin vim-easy-align {{{
 "-----------------------
 " Mappings {{{
@@ -302,7 +294,6 @@ let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']
 let g:easy_align_delimiters['"'] = { 'pattern': '"', 'ignore_groups': ['String'] }
 " }}}
 
-"-----------------------
 " Plugin EasyMotion {{{
 "-----------------------
 " Mappings {{{
@@ -348,7 +339,6 @@ let g:EasyMotion_do_shade = 0
 let g:EasyMotion_enter_jump_first = 1
 " }}}
 
-"-----------------------
 " Plugin Goyo {{{
 "-----------------------
 let g:goyo_width = 90        " (default: 80)
@@ -356,13 +346,11 @@ let g:goyo_margin_top = 1    " (default: 4)
 let g:goyo_margin_bottom = 1 " (default: 4)
 " }}}
 
-"-----------------------
 " Plugin Dokuwiki {{{
 "-----------------------
 let dokuwiki_comment=1
 " }}}
 
-"-----------------------
 " Plugin vim-expand-region {{{
 "-----------------------
 "map v <Plug>(expand_region_expand)
