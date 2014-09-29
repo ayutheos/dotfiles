@@ -174,7 +174,7 @@ nnoremap k gk
 nnoremap Y y$
 
 " Select to the last non-blank character of the current line
-vnoremap $ g_
+"vnoremap $ g_
 
 "inoremap <M-o>       <Esc>o
 "inoremap <C-j>       <Down>
