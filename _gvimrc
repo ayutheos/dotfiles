@@ -228,7 +228,7 @@ let g:choosewin_blink_on_land      = 0 " dont' blink at land
 "-----------------------
 " Mappings {{{
 nnoremap <c-m> :CtrlPMRU<cr>
-nnoremap <c-b> :CtrlPBuffer<cr>
+"nnoremap <c-b> :CtrlPBuffer<cr>
 "}}}
 
 let g:ctrlp_map = ''
