@@ -1,4 +1,4 @@
-﻿" My Vimrc file
+" My Vimrc file
 " Maintainer: www.swaroopch.com/contact/
 " Reference: Initially based on http://dev.gentoo.org/~ciaranm/docs/vim-guide/
 " License: www.opensource.org/licenses/bsd-license.php
@@ -12,6 +12,11 @@ execute pathogen#infect()
 filetype on
 filetype plugin on
 filetype plugin indent on
+
+set encoding=utf-8                                     " Use UTF-8
+scriptencoding utf-8
+set termencoding=utf-8set
+set fileencodings=utf-8,gk2312,gbk,gb18030
 
 "if has("gui_running")
 "    source $USERPROFILE\_vimrc
@@ -92,9 +97,6 @@ set smartindent " Automatically indent when adding a curly bracket, etc.
 "" Displaying text: {{{2
 set nowrap
 set listchars=tab:»\ ,trail:~,extends:»,nbsp:· ",eol:¶ " Use the same symbols as TextMate for tabstops and EOLs
-set encoding=utf-8                                     " Use UTF-8
-set fileencodings=utf-8,gk2312,gbk,gb18030
-set termencoding=utf-8set
 set guifontwide=NSimsun:h12
 set guifont=Consolas:h12
 set clipboard=unnamed
