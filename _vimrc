@@ -13,11 +13,6 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 
-set encoding=utf-8                                     " Use UTF-8
-scriptencoding utf-8
-set termencoding=utf-8set
-set fileencodings=utf-8,gk2312,gbk,gb18030
-
 "if has("gui_running")
 "    source $USERPROFILE\_vimrc
 "endif
@@ -45,9 +40,21 @@ set backupdir=d:\tmp
 set directory=d:\tmp
 " }}}
 
-"" Displaying text {{{2
-"set list
-"" }}}
+"" Displaying text: {{{2
+set encoding=utf-8                                     " Use UTF-8
+set termencoding=utf-8set
+set fileencodings=utf-8,gk2312,gbk,gb18030
+
+set nowrap
+set listchars=tab:»\ ,trail:~,extends:»,nbsp:· ",eol:¶ " Use the same symbols as TextMate for tabstops and EOLs
+set guifontwide=NSimsun:h12
+set guifont=Consolas:h12
+set clipboard=unnamed
+set foldlevelstart=3
+
+let g:ragtag_global_maps = 1
+hi NonText gui=none
+" }}}
 
 "" Insert (Edit) Options: {{{2
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode
@@ -94,17 +101,6 @@ set expandtab
 set smartindent " Automatically indent when adding a curly bracket, etc.
 " }}}
 
-"" Displaying text: {{{2
-set nowrap
-set listchars=tab:»\ ,trail:~,extends:»,nbsp:· ",eol:¶ " Use the same symbols as TextMate for tabstops and EOLs
-set guifontwide=NSimsun:h12
-set guifont=Consolas:h12
-set clipboard=unnamed
-set foldlevelstart=3
-
-let g:ragtag_global_maps = 1
-hi NonText gui=none
-" }}}
 " }}}
 
 "-----------------------------------
