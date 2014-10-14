@@ -50,7 +50,7 @@ set listchars=tab:»\ ,trail:~,extends:»,nbsp:· ",eol:¶ " Use the same symbol
 set guifontwide=NSimsun:h12
 set guifont=Consolas:h12
 set clipboard=unnamed
-set foldlevelstart=2
+set foldlevelstart=3
 
 let g:ragtag_global_maps = 1
 hi NonText gui=none
