@@ -141,7 +141,7 @@ nnoremap <F1> :help <C-R><C-W><CR>
 " Quickly edit/reload the vimrc file
 nnoremap <silent> <leader>ev :tabe $MYVIMRC<CR>
 nnoremap <silent> <leader>gv :tabe $MYGVIMRC<CR>
-nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
+nnoremap <silent> <leader>so :so %<CR>
 
 " Indent in normal mode using Tab
 nnoremap <tab> >>
