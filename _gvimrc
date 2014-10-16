@@ -376,7 +376,8 @@ let g:expand_region_text_objects = {
 
 " Plugin delimitMate {{{
 "-----------------------
-imap <leader>g <Plug>delimitMateS-Tab
+imap <leader>g         <Plug>delimitMateS-Tab
+imap <leader><leader>g <Plug>delimitMateJumpMany
 " }}}
 
 
