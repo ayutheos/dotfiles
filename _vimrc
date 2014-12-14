@@ -185,8 +185,8 @@ cnoremap ;;           <C-c>
 vnoremap ;;           <C-c>
 
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
-nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+"nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+"nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 "nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 "nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 nnoremap <silent><A-j> :set paste<CR>m`o<Esc>:set nopaste<CR>
@@ -313,17 +313,17 @@ let g:EasyMotion_re_anywhere = '\v' .
 "hi link EasyMotionMoveHL Search
 
 " Mappings {{{
-map  /         <Plug>(easymotion-sn)
-omap /         <Plug>(easymotion-tn)
-map  n         <Plug>(easymotion-next)
-map  N         <Plug>(easymotion-prev)
-map  f         <Plug>(easymotion-bd-f)
-map  t         <Plug>(easymotion-bd-t)
-nmap s         <Plug>(easymotion-s2)
-map  <Leader>h <Plug>(easymotion-lineforward)
-map  <Leader>j <Plug>(easymotion-j)
-map  <Leader>k <Plug>(easymotion-k)
-map  <Leader>l <Plug>(easymotion-linebackward)
+"map  /         <Plug>(easymotion-sn)
+"omap /         <Plug>(easymotion-tn)
+"map  n         <Plug>(easymotion-next)
+"map  N         <Plug>(easymotion-prev)
+"map  f         <Plug>(easymotion-bd-f)
+"map  t         <Plug>(easymotion-bd-t)
+"nmap s         <Plug>(easymotion-s2)
+"map  <Leader>h <Plug>(easymotion-lineforward)
+"map  <Leader>j <Plug>(easymotion-j)
+"map  <Leader>k <Plug>(easymotion-k)
+"map  <Leader>l <Plug>(easymotion-linebackward)
 " }}}
 
 " Turn on case sensitive feature
