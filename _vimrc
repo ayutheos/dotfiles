@@ -293,11 +293,11 @@ let g:EasyMotion_re_anywhere = '\v' .
     \       '(_\zs.)' . '|' .
     \       '(#\zs.)'
 
-"hi link EasyMotionTarget        WarningMsg
-"hi link EasyMotionShade         WarningMsg
-"hi link EasyMotionTarget2First  MatchParen
-"hi link EasyMotionTarget2Second MatchParen
-"hi link EasyMotionMoveHL Search
+hi link EasyMotionTarget        WarningMsg
+hi link EasyMotionShade         WarningMsg
+hi link EasyMotionTarget2First  MatchParen
+hi link EasyMotionTarget2Second MatchParen
+hi link EasyMotionMoveHL Search
 
 " Mappings {{{
 "map  /         <Plug>(easymotion-sn)
