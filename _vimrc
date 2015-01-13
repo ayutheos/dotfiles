@@ -284,19 +284,6 @@ nnoremap <F5> :NERDTreeToggle<CR>
 
 " }}}
 
-" Plugin dragvisuals {{{
-"-----------------------
-" Mappings {{{
-vnoremap  <expr>  <S-LEFT>   DVB_Drag('left')
-vnoremap  <expr>  <S-RIGHT>  DVB_Drag('right')
-vnoremap  <expr>  <S-DOWN>   DVB_Drag('down')
-vnoremap  <expr>  <S-UP>     DVB_Drag('up')
-
-" }}}
-
-runtime bundle/dragvisuals/plugin/dragvisuals.vim
-" }}}
-
 " Plugin EasyMotion {{{
 "-----------------------
 let g:EasyMotion_re_anywhere = '\v' .
