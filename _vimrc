@@ -286,18 +286,18 @@ nnoremap <F5> :NERDTreeToggle<CR>
 
 " Plugin EasyMotion {{{
 "-----------------------
-let g:EasyMotion_re_anywhere = '\v' .
-    \       '(<.|^$)' . '|' .
-    \       '(.>|^$)' . '|' .
-    \       '(\l)\zs(\u)' . '|' .
-    \       '(_\zs.)' . '|' .
-    \       '(#\zs.)'
+"let g:EasyMotion_re_anywhere = '\v' .
+    "\       '(<.|^$)' . '|' .
+    "\       '(.>|^$)' . '|' .
+    "\       '(\l)\zs(\u)' . '|' .
+    "\       '(_\zs.)' . '|' .
+    "\       '(#\zs.)'
 
-hi link EasyMotionTarget        WarningMsg
-hi link EasyMotionShade         WarningMsg
-hi link EasyMotionTarget2First  MatchParen
-hi link EasyMotionTarget2Second MatchParen
-hi link EasyMotionMoveHL Search
+"hi link EasyMotionTarget        WarningMsg
+"hi link EasyMotionShade         WarningMsg
+"hi link EasyMotionTarget2First  MatchParen
+"hi link EasyMotionTarget2Second MatchParen
+"hi link EasyMotionMoveHL Search
 
 " Mappings {{{
 "map  /         <Plug>(easymotion-sn)
@@ -314,19 +314,19 @@ hi link EasyMotionMoveHL Search
 " }}}
 
 " Turn on case sensitive feature
-let g:EasyMotion_smartcase = 1
+"let g:EasyMotion_smartcase = 1
 
 " keep cursor colum when JK motion
-let g:EasyMotion_startofline = 0 
+"let g:EasyMotion_startofline = 0 
 
-let g:EasyMotion_grouping = 1
+"let g:EasyMotion_grouping = 1
 
-let g:EasyMotion_keys='l,rcpgyf;zqvjwkmasonetuh'
+"let g:EasyMotion_keys='l,rcpgyf;zqvjwkmasonetuh'
 " default 'asdghklqwertyuiopzxcvbnmfj;'
 
-let g:EasyMotion_do_shade = 0
+"let g:EasyMotion_do_shade = 0
 "let g:EasyMotion_use_upper = 1
-let g:EasyMotion_enter_jump_first = 1
+"let g:EasyMotion_enter_jump_first = 1
 " }}}
 
 " Plugin Goyo {{{
@@ -335,6 +335,22 @@ let g:EasyMotion_enter_jump_first = 1
 "let g:goyo_margin_top = 1    " (default: 4)
 "let g:goyo_margin_bottom = 1 " (default: 4)
 " }}}
+
+" Plugin sneak.vim {{{
+"-----------------------
+let g:sneak#streak = 1
+let g:sneak#use_ic_scs = 1
+"let g:sneak#target_labels = "asdfghjkl;qwertyuiopzxcvbnm/ASDFGHJKL:QWERTYUIOPZXCVBNM?"
+let g:sneak#s_next = 1
+
+nmap <leader>s <Plug>(SneakStreak)
+nmap s <Plug>Sneak_s
+nmap s <Plug>Sneak_S
+map  s <Plug>SneakNext
+map  s <Plug>SneakPrevious
+" }}}
+
+
 
 " }}}
 
