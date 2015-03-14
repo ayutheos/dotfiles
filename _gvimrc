@@ -316,10 +316,10 @@ map  /         <Plug>(easymotion-sn)
 omap /         <Plug>(easymotion-tn)
 "map  n         <Plug>(incsearch-nohl)<Plug>(easymotion-next)
 "map  N         <Plug>(incsearch-nohl)<Plug>(easymotion-prev)
-map  n         <Plug>(easymotion-next)
-map  N         <Plug>(easymotion-prev)
-map  f         <Plug>(easymotion-bd-f)
-map  t         <Plug>(easymotion-bd-t)
+nnoremap  n         <Plug>(easymotion-next)
+nnoremap  N         <Plug>(easymotion-prev)
+nnoremap  f         <Plug>(easymotion-bd-f)
+nnoremap  t         <Plug>(easymotion-bd-t)
 nmap s         <Plug>(easymotion-s2)
 xmap s         <Plug>(easymotion-s2)
 omap z         <Plug>(easymotion-s2)
@@ -361,6 +361,28 @@ map  <Leader>l <Plug>(easymotion-linebackward)
 "let g:EasyMotion_enter_jump_first = 1
 "let g:EasyMotion_landing_highlight = 0
 " }}}
+
+augroup incsearch-easymotion
+  autocmd!
+  autocmd User IncSearchEnter autocmd! incsearch-easymotion-impl
+augroup END
+augroup incsearch-easymotion-impl
+  autocmd!
+augroup END
+
+function! IncsearchEasyMotion() abort
+  autocmd incsearch-easymotion-impl User IncSearchExecute :silent! call EasyMotion#Search(0, 2, 0)
+  return "\<CR>"
+endfunction
+let g:incsearch_cli_key_mappings = {
+\   "\<Space>": {
+\       'key': 'IncsearchEasyMotion()',
+\       'noremap': 1,
+\       'expr': 1
+\   }
+\ }
+
+
 
 " Plugin Goyo {{{
 "-----------------------
