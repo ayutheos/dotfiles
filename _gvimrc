@@ -312,12 +312,12 @@ let g:easy_align_delimiters['"'] = { 'pattern': '"', 'ignore_groups': ['String']
 " Plugin EasyMotion {{{
 "-----------------------
 " Mappings {{{
-map  /         <Plug>(easymotion-sn)
-omap /         <Plug>(easymotion-tn)
+"map  /         <Plug>(easymotion-sn)
+"omap /         <Plug>(easymotion-tn)
 "map  n         <Plug>(incsearch-nohl)<Plug>(easymotion-next)
 "map  N         <Plug>(incsearch-nohl)<Plug>(easymotion-prev)
-map  n         <Plug>(easymotion-next)
-map  N         <Plug>(easymotion-prev)
+"map  n         <Plug>(easymotion-next)
+"map  N         <Plug>(easymotion-prev)
 map  f         <Plug>(easymotion-bd-f)
 map  t         <Plug>(easymotion-bd-t)
 nmap s         <Plug>(easymotion-s2)
@@ -420,32 +420,32 @@ imap <leader><leader>g <Plug>delimitMateJumpMany
 " Plugin incsearch.vim {{{
 "-----------------------
 " Mappings {{{
-"map <leader>s  <Plug>(incsearch-forward)
-"map <leader>S  <Plug>(incsearch-backward)
-"map g/ <Plug>(incsearch-stay)
-"map n  <Plug>(incsearch-nohl-n)
-"map N  <Plug>(incsearch-nohl-N)
-"map *  <Plug>(incsearch-nohl-*)
-"map #  <Plug>(incsearch-nohl-#)
-"map g* <Plug>(incsearch-nohl-g*)
-"map g# <Plug>(incsearch-nohl-g#)
+map /  <Plug>(incsearch-forward)
+map <leader>/  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
 "}}}
 
-"let g:incsearch#auto_nohlsearch = 1
+let g:incsearch#auto_nohlsearch = 1
 
-"let g:incsearch#highlight = {
-"\   'match' : {
-"\     'group' : 'IncSearchUnderline',
-"\     'priority' : '10'
-"\   },
-"\   'on_cursor' : {
-"\     'priority' : '100'
-"\   },
-"\   'cursor' : {
-"\     'group' : 'ErrorMsg',
-"\     'priority' : '1000'
-"\   }
-"\ }
+let g:incsearch#highlight = {
+\   'match' : {
+\     'group' : 'IncSearchUnderline',
+\     'priority' : '10'
+\   },
+\   'on_cursor' : {
+\     'priority' : '100'
+\   },
+\   'cursor' : {
+\     'group' : 'ErrorMsg',
+\     'priority' : '1000'
+\   }
+\ }
 "}}}
 
 augroup filetypedetect
