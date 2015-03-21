@@ -470,6 +470,11 @@ imap <leader><leader>g <Plug>delimitMateJumpMany
 "\ }
 "}}}
 
+" Plugin vim-asciidoc {{{
+"-----------------------
+let g:vim_asciidoc_initial_foldlevel=1
+" }}}
+
 augroup filetypedetect
     autocmd! BufRead,BufNewFile *.txt,*.asciidoc,*.adoc,README,TODO,CHANGELOG,NOTES,ABOUT
        \ setlocal filetype=asciidoc
