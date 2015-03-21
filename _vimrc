@@ -238,6 +238,9 @@ nnoremap <leader>cd :cd %:h<cr>
 nnoremap \ ~<left>
 vnoremap \ ~
 
+" provide a mapping to fold on an already-performed search
+nnoremap <leader>z :setlocal foldexpr=(getline(v:lnum)=~@/)?0:(getline(v:lnum-1)=~@/)\\|\\|(getline(v:lnum+1)=~@/)?1:2 foldmethod=expr foldlevel=0 foldcolumn=2<CR>
+
 " }}}
 
 "-----------------------------------
@@ -299,7 +302,7 @@ hi link EasyMotionTarget2First  MatchParen
 hi link EasyMotionTarget2Second MatchParen
 hi link EasyMotionMoveHL Search
 
-" Turn on case sensitive feature
+" Turn on case sensitive feature for target keys
 let g:EasyMotion_smartcase = 1
 
 " keep cursor colum when JK motion
