@@ -280,13 +280,13 @@ let g:calendar_view = "year"
 
 " Plugin dragvisuals {{{
 "-----------------------
-runtime bundle/dragvisuals/plugin/dragvisuals.vim
+runtime plugin/dragvisuals.vim
 
 " Mappings {{{
-vnoremap  <expr>  <S-LEFT>   DVB_Drag('left')
-vnoremap  <expr>  <S-RIGHT>  DVB_Drag('right')
-vnoremap  <expr>  <S-DOWN>   DVB_Drag('down')
-vnoremap  <expr>  <S-UP>     DVB_Drag('up')
+vmap  <expr>  <S-LEFT>   DVB_Drag('left')
+vmap  <expr>  <S-RIGHT>  DVB_Drag('right')
+vmap  <expr>  <S-DOWN>   DVB_Drag('down')
+vmap  <expr>  <S-UP>     DVB_Drag('up')
 " }}}
 
 let g:DVB_TrimWS = 1
