@@ -279,14 +279,6 @@ augroup END
 " Plugins {{{
 "-----------------------------------
 
-" Plugin NERDTree {{{
-"-----------------------
-" Mappings {{{
-nnoremap <F5> :NERDTreeToggle<CR>
-" }}}
-
-" }}}
-
 " Plugin EasyMotion {{{
 "-----------------------
 let g:EasyMotion_re_anywhere = '\v' .

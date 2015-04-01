@@ -470,6 +470,14 @@ imap <leader><leader>g <Plug>delimitMateJumpMany
 "\ }
 "}}}
 
+" Plugin NERDTree {{{
+"-----------------------
+" Mappings {{{
+nmap <leader>f :NERDTreeFind<CR>
+" }}}
+
+" }}}
+
 " Plugin vim-asciidoc {{{
 "-----------------------
 let g:vim_asciidoc_initial_foldlevel=1
