@@ -473,7 +473,7 @@ imap <leader><leader>g <Plug>delimitMateJumpMany
 " Plugin NERDTree {{{
 "-----------------------
 " Mappings {{{
-nmap <leader>f :NERDTreeFind<CR>
+nmap - :NERDTreeFind<CR>
 " }}}
 
 " }}}
