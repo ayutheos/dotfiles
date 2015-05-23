@@ -322,7 +322,47 @@ let g:EasyMotion_enter_jump_first = 1
 " }}}
 
 
+" }}}
+
+"-----------------------------------
+" Plugin list {{{
+"-----------------------------------
+ctrlp.vim            https://github.com/ctrlpvim/ctrlp.vim.git
+delimitMate          https://github.com/Raimondi/delimitMate.git
+gruvbox              https://github.com/morhetz/gruvbox.git
+jellybeans.vim       https://github.com/nanotech/jellybeans.vim.git
+lightline.vim        https://github.com/itchyny/lightline.vim.git
+nerdcommenter        https://github.com/scrooloose/nerdcommenter.git
+nerdtree             https://github.com/scrooloose/nerdtree.git
+renamer.vim          https://github.com/vim-scripts/renamer.vim.git
+tlib_vim             https://github.com/tomtom/tlib_vim.git
+vim-abolish          https://github.com/tpope/vim-abolish.git
+vim-addon-mw-utils   https://github.com/MarcWeber/vim-addon-mw-utils.git
+vim-asciidoc         https://github.com/mjakl/vim-asciidoc.git
+vim-choosewin        https://github.com/t9md/vim-choosewin.git
+vim-colors-solarized https://github.com/altercation/vim-colors-solarized.git
+vim-dokuwiki         https://github.com/nblock/vim-dokuwiki.git
+vim-easy-align       https://github.com/junegunn/vim-easy-align.git
+vim-easymotion       https://github.com/Lokaltog/vim-easymotion.git
+vim-exchange         https://github.com/tommcdo/vim-exchange.git
+vim-expand-region    https://github.com/terryma/vim-expand-region.git
+vim-fugitive         https://github.com/tpope/vim-fugitive.git
+vim-hybrid           https://github.com/w0ng/vim-hybrid.git
+vim-kolor            https://github.com/zeis/vim-kolor.git
+vim-lilypond         https://github.com/cg433n/vim-lilypond.git
+vim-lucius           https://github.com/jonathanfilip/vim-lucius.git
+vim-repeat           https://github.com/tpope/vim-repeat.git
+vim-snipmate         https://github.com/garbas/vim-snipmate.git
+vim-snippets         https://github.com/honza/vim-snippets.git
+vim-speeddating      https://github.com/tpope/vim-speeddating
+vim-surround         https://github.com/tpope/vim-surround.git
+vim-tomorrow-theme   https://github.com/chriskempson/vim-tomorrow-theme.git
+vim-unimpaired       https://github.com/tpope/vim-unimpaired.git
+vim-vinegar          https://github.com/tpope/vim-vinegar.git
+wikidpad
+workflowish          https://github.com/lukaszkorecki/workflowish.git
 
 " }}}
+
 
 " vim: set foldmethod=marker foldlevel=0 :
