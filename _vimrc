@@ -162,7 +162,7 @@ inoremap <c-s> <Esc>:w<CR>a
 inoremap <c-v> <c-o>"+gp
 
 " Map spacebar to toggle folds
-nnoremap <Space> zazt
+nnoremap <Space> za
 
 " Wrapped lines goes down/up to next row, rather than next line in file.
 nnoremap j gj
