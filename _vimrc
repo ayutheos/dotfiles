@@ -167,6 +167,7 @@ inoremap <c-s> <Esc>:w<CR>a
 inoremap <c-v> <c-o>"+gp
 
 " Map spacebar to toggle folds
+"nnoremap <Space> zazt
 nnoremap <Space> za
 
 " Wrapped lines goes down/up to next row, rather than next line in file.
@@ -245,6 +246,9 @@ vnoremap \ ~
 
 " provide a mapping to fold on an already-performed search
 nnoremap <leader>z :setlocal foldexpr=(getline(v:lnum)=~@/)?0:(getline(v:lnum-1)=~@/)\\|\\|(getline(v:lnum+1)=~@/)?1:2 foldmethod=expr foldlevel=0 foldcolumn=2<CR>
+
+" Ctrl-e: Go to end of line
+inoremap <c-e> <esc>A
 
 " }}}
 
