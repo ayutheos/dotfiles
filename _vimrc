@@ -360,6 +360,7 @@ vim-hybrid           https://github.com/w0ng/vim-hybrid.git
 vim-kolor            https://github.com/zeis/vim-kolor.git
 vim-lilypond         https://github.com/cg433n/vim-lilypond.git
 vim-lucius           https://github.com/jonathanfilip/vim-lucius.git
+vim-multiple-cursors https://github.com/terryma/vim-multiple-cursors
 vim-repeat           https://github.com/tpope/vim-repeat.git
 vim-snipmate         https://github.com/garbas/vim-snipmate.git
 vim-snippets         https://github.com/honza/vim-snippets.git
@@ -370,6 +371,7 @@ vim-unimpaired       https://github.com/tpope/vim-unimpaired.git
 vim-vinegar          https://github.com/tpope/vim-vinegar.git
 wikidpad
 workflowish          https://github.com/lukaszkorecki/workflowish.git
+vim-foldsearch       https://github.com/embear/vim-foldsearch
 
 " }}}
 
