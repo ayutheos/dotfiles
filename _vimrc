@@ -162,11 +162,14 @@ inoremap <c-s> <Esc>:w<CR>a
 inoremap <c-v> <c-o>"+gp
 
 " Map spacebar to toggle folds
-nnoremap <Space> zazt
+"nnoremap <Space> zazt
+nnoremap <Space> za
 
 " Wrapped lines goes down/up to next row, rather than next line in file.
 nnoremap j gj
 nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
@@ -240,6 +243,16 @@ vnoremap \ ~
 
 " provide a mapping to fold on an already-performed search
 nnoremap <leader>z :setlocal foldexpr=(getline(v:lnum)=~@/)?0:(getline(v:lnum-1)=~@/)\\|\\|(getline(v:lnum+1)=~@/)?1:2 foldmethod=expr foldlevel=0 foldcolumn=2<CR>
+
+" Ctrl-e: Go to end of line
+inoremap <c-e> <esc>A
+
+" Esteem mappings
+nnoremap <F3> ggi== <esc>:setf esteem<cr>\|:%s:^.Span No :===\0:g<cr>\|:g:CHECK:norm i===<cr>zMggzrzjzt
+
+" first/last line of next paragraph
+nnoremap } }j
+nnoremap { {k
 
 " }}}
 
