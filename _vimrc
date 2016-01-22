@@ -385,6 +385,7 @@ vim-unimpaired       https://github.com/tpope/vim-unimpaired.git
 vim-vinegar          https://github.com/tpope/vim-vinegar.git
 wikidpad
 workflowish          https://github.com/lukaszkorecki/workflowish.git
+vim-foldsearch       https://github.com/embear/vim-foldsearch
 
 " }}}
 
