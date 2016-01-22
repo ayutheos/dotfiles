@@ -101,6 +101,11 @@ set expandtab
 set smartindent " Automatically indent when adding a curly bracket, etc.
 " }}}
 
+"" Print settings: {{{2
+set printoptions=top:4pc,right:4pc,bottom:4pc,left:4pc
+set printfont=Courier_New:h9
+" }}}
+
 " }}}
 
 "-----------------------------------
