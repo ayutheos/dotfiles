@@ -54,6 +54,9 @@ set foldlevelstart=3
 
 let g:ragtag_global_maps = 1
 hi NonText gui=none
+
+set nrformats=
+
 " }}}
 
 "" Insert (Edit) Options: {{{2
@@ -156,8 +159,8 @@ nnoremap <S-Tab> <<
 "inoremap <S-Tab> <C-o><<
 
 " To insert timestamp, press F3.
-nmap <F3> a<C-R>=strftime("%Y.%m.%d %a %I:%M%p")<CR><Esc>
-imap <F3> <C-R>=strftime("%Y.%m.%d %a %I:%M%p")<CR>
+"nmap <F3> a<C-R>=strftime("%Y.%m.%d %a %I:%M%p")<CR><Esc>
+"imap <F3> <C-R>=strftime("%Y.%m.%d %a %I:%M%p")<CR>
 
 " To save, press ctrl-s.
 nnoremap <c-s> :w<CR>
@@ -173,6 +176,8 @@ nnoremap <Space> za
 " Wrapped lines goes down/up to next row, rather than next line in file.
 nnoremap j gj
 nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
@@ -251,6 +256,13 @@ nnoremap <leader>z :setlocal foldexpr=(getline(v:lnum)=~@/)?0:(getline(v:lnum-1)
 
 " Ctrl-e: Go to end of line
 inoremap <c-e> <esc>A
+
+" Esteem mappings
+nnoremap <F3> ggi== <esc>:setf esteem<cr>\|:%s:^.Span No :===\0:g<cr>\|:g:CHECK:norm i===<cr>zMggzrzjzt
+
+" first/last line of next paragraph
+nnoremap } }j
+nnoremap { {k
 
 " }}}
 
@@ -332,6 +344,8 @@ let g:EasyMotion_enter_jump_first = 1
 "let g:goyo_margin_bottom = 1 " (default: 4)
 " }}}
 
+set shellslash
+let g:tex_flavor='latex'
 
 " }}}
 
@@ -362,7 +376,7 @@ vim-hybrid           https://github.com/w0ng/vim-hybrid.git
 vim-kolor            https://github.com/zeis/vim-kolor.git
 vim-lilypond         https://github.com/cg433n/vim-lilypond.git
 vim-lucius           https://github.com/jonathanfilip/vim-lucius.git
-vim-multiple-cursors https://github.com/terryma/vim-multiple-cursors
+"vim-multiple-cursors https://github.com/terryma/vim-multiple-cursors
 vim-repeat           https://github.com/tpope/vim-repeat.git
 vim-snipmate         https://github.com/garbas/vim-snipmate.git
 vim-snippets         https://github.com/honza/vim-snippets.git
